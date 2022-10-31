@@ -1,0 +1,14 @@
+[Unit]
+Description=no tty blinking
+After=multi-user.target
+StartLimitBurst=0
+
+[Service]
+Type=oneshot
+Restart=on-failure
+RemainAfterExit=yes
+ExecStart=/bin/sh -c 'echo 0 > /sys/class/graphics/fbcon/cursor_blink'
+ExecStop=/bin/sh -c 'echo 1 > /sys/class/graphics/fbcon/cursor_blink'
+
+[Install]
+WantedBy=multi-user.target
