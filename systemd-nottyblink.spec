@@ -19,13 +19,13 @@ Stop TTY cursor blink with a service
 %setup -q
 
 %install
-install -Dm755 systemd-nottyblink.sh %{buildroot}%{_bindir}/systemd-nottyblink.sh
+install -Dm755 systemd-ttyblink.sh %{buildroot}%{_bindir}/systemd-ttyblink.sh
 install -Dm644 LICENSE %{buildroot}%{_datadir}/licenses/systemd-nottyblink/LICENSE
 install -Dm644 systemd-nottyblink.service %{buildroot}%{_prefix}/lib/systemd/system/systemd-nottyblink.service
 install -Dm644 cursor_blink.conf %{_sysconfigdir}/tmpfiles.d/cursor_blink.conf
 
 %files
-%{_bindir}/systemd-nottyblink.sh
+%{_bindir}/systemd-ttyblink.sh
 %{_sysconfigdir}/tmpfiles.d/cursor_blink.conf
 %{_prefix}/lib/systemd/system/systemd-nottyblink.service
 %doc README.md
